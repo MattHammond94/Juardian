@@ -1,4 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 * {
   padding: 0;
   margin: 0;
 }
+
+
+:root {
+  --text-font: 'Playfair Display', serif;
+  --orange-one: #E97204;
+  --orage-two: #E26A12;
+  --black-one: #1E1A1A;
+  --black-two: #181414;
+  --black-three: #1C1A16;
+  --black-four: #1A1714;
+}
+
