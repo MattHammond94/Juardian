@@ -24,7 +24,7 @@ body {
 header {
   background-color: var(--black-one);
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
   height: 10em;
@@ -33,7 +33,8 @@ header {
 header img {
   height: 100px;
   width: 100px;
-  margin-left: 1em;
+  justify-self: flex-start;
+  margin-left: 10px;
 }
 
 header div {
@@ -106,16 +107,15 @@ input::placeholder {
   color: var(--black-one);
 }
 
-.footer p {
+.formSection p {
   text-align: center;
   color: var(--black-one);
 }
 
-.footer {
-  position: fixed;
-  left: 0;
+.formSection {
+  position: relative;
   right: 0;
-  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,4 +128,37 @@ input::placeholder {
   background-color: var(--black-one);
   height: 0.1rem;
   width: 300px;
+}
+
+
+
+
+/* ================= FOOTER ================ */
+
+footer {
+  background-color: var(--black-one);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  height: 80px;
+}
+
+footer p {
+  font-size: 0.7rem;
+}
+
+footer img {
+  width: 50px;
+  height: 50px;
+  justify-self: center;
+}
+
+footer p {
+  text-align: center;
+  color: white;
 }

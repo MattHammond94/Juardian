@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Form from "./components/Form";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Header />
       {/* Add body that padginates */}
       <Form />
+      <Footer />
     </>
   )
 }

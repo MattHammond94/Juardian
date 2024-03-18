@@ -1,6 +1,6 @@
 const FooterForm = () => {
   return (
-    <section className="footer">
+    <section className="formSection">
       <div className="registerHeader">
         <div className="line"></div>
         <h2>Register</h2>
