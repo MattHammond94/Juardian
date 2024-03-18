@@ -5,7 +5,6 @@
   margin: 0;
 }
 
-
 :root {
   --text-font: 'Playfair Display', serif;
   --orange-one: #E97204;
@@ -14,5 +13,41 @@
   --black-two: #181414;
   --black-three: #1C1A16;
   --black-four: #1A1714;
+}
+
+body {
+  font-family: var(--text-font);
+}
+
+header {
+  background-color: var(--black-one);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-items: center;
+  height: 10em;
+}
+
+header img {
+  height: 100px;
+  width: 100px;
+  margin-left: 1em;
+}
+
+header div {
+  
+}
+
+header h1 {
+  color: white;
+  text-align: center;
+}
+
+header h1:first-of-type {
+  font-size: 1.5rem;
+}
+
+header h1:last-of-type {
+  font-size: 3rem;
 }
 

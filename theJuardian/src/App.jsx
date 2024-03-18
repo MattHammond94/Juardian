@@ -1,9 +1,9 @@
+import Header from "./components/Header";
+
 function App() {
   return (
     <>
-      <div>
-        <h1>Welcome to the Juardian</h1>
-      </div>
+      <Header />
     </>
   )
 }
