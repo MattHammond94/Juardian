@@ -127,9 +127,11 @@ a:hover {
   color: var(--black-one);
   opacity: 0.9;
   margin-top: 10px;
-  max-height: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 /* ============================== BUTTON BAR ============================== */
