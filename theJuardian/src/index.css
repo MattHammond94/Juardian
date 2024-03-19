@@ -23,7 +23,7 @@ button {
   font-family: var(--text-font);
 }
 
-/* ================= HEADER ================ */
+/* ============================== HEADER ============================== */
 
 header {
   background-color: var(--black-one);
@@ -42,7 +42,15 @@ header img {
 }
 
 header div {
-  /* Move the first h1 down */
+  position: relative;
+  display: inline-block;
+}
+
+header div h1:first-of-type {
+  position: absolute;
+  top: 15%;
+  transform: translateY(-50%);
+  right: 50%
 }
 
 header h1 {
@@ -58,16 +66,20 @@ header h1:last-of-type {
   font-size: 3rem;
 }
 
+/* ============================== NEWS FEED ============================== */
 
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
-
-
-
-
-
-
-
-/* ================= NEWS FEED ================ */
+.feedContainer {
+  margin: 40px auto 90px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
 
 a {
   color: var(--black-one);
@@ -83,22 +95,26 @@ a:hover {
   color: var(--orange-one);
 }
 
-.feedContainer {
-  margin: 40px 40px 150px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 40px;
-}
-
 .articleContainer {
   padding: 15px;
   width: 400px;
   box-shadow: 0 0 8px 0 rgba(30, 26, 26, 0.5);
+  position: relative;
 }
 
-.articleContainer:hover {
-  border-left: 1px solid var(--orange-one);
+.articleContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 2px;
+  height: 0%;
+  background-color: var(--orange-one);
+  transition: height 1s ease;
+}
+
+.articleContainer:hover::before {
+  height: 100%;
 }
 
 .articleContainer img {
@@ -116,44 +132,43 @@ a:hover {
   text-overflow: ellipsis;
 }
 
+/* ============================== BUTTON BAR ============================== */
 
+.buttonBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
 
-
-
-
-
-
-
-
-/* ================= FORM ================ */
-
-.registerButton {
-  background-color: var(--black-one);
-  color: white;
+.inactiveButton, .activeButton {
+  color: var(--black-one);
+  border: 2px solid var(--black-one);
   font-size: 1rem;
   height: 40px;
-  width: 80px;
-  border: none;
+  width: 40px;
 }
 
-.registerButton:hover {
+.inactiveButton {
+  background-color: white;
+}
+
+.inactiveButton:hover {
   cursor: pointer;
-  /* background-color: var(--orange-two); */
-  background-color: var(--orange-one);
+  background-color: var(--black-one);
+  color: white;
 }
 
-input {
-  height: 40px;
-  width: 330px;
-  border: 1.5px solid var(--black-one);
-  text-indent: 10px;
+.activeButton {
+  background-color: var(--black-one);
+  color: white;
+  height: 50px;
+  width: 50px;
+  transition: 0.5s ease-in-out;
 }
 
-input::placeholder {
-  opacity: 0.5;
-  font-family: var(--text-font);
-  text-indent: 10px;
-}
+/* ============================== FORM ============================== */
 
 .registerHeader {
   display: flex;
@@ -170,9 +185,15 @@ input::placeholder {
   color: var(--black-one);
 }
 
-.formSection p {
-  text-align: center;
-  color: var(--black-one);
+.line {
+  background-color: var(--black-one);
+  height: 0.1rem;
+  width: 300px;
+}
+
+.inputContainer {
+  position: relative;
+  display: inline-block;
 }
 
 .formSection {
@@ -187,16 +208,50 @@ input::placeholder {
   margin-bottom: 40px;
 }
 
-.line {
-  background-color: var(--black-one);
-  height: 0.1rem;
-  width: 300px;
+.formSection p {
+  text-align: center;
+  color: var(--black-one);
 }
 
+input {
+  height: 40px;
+  width: 330px;
+  border: 1.5px solid var(--black-one);
+  text-indent: 10px;
+  font-family: var(--text-font);
+}
 
+.errorCheck {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  pointer-events: none;
+  color: var(--black-one);
+  opacity: 0.4;
+}
 
+input::placeholder {
+  opacity: 0.5;
+  font-family: var(--text-font);
+  text-indent: 10px;
+}
 
-/* ================= FOOTER ================ */
+.registerButton {
+  background-color: var(--black-one);
+  color: white;
+  font-size: 1rem;
+  height: 40px;
+  width: 80px;
+  border: none;
+}
+
+.registerButton:hover {
+  cursor: pointer;
+  background-color: var(--orange-one);
+}
+
+/* ============================== FOOTER ============================== */
 
 footer {
   background-color: var(--black-one);
@@ -205,6 +260,7 @@ footer {
   align-items: center;
   gap: 10px;
   height: 80px;
+  margin-top: 65px;
 }
 
 footer p {
@@ -222,53 +278,83 @@ footer p {
   color: white;
 }
 
+/* ============================== MEDIA QUERIES ============================== */
 
-
-
-
-/* ================= BUTTON BAR ================ */
-
-.buttonBar {
-  position: relative;
-  right: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 40px;
+@media (max-width: 900px) {
+  .feedContainer {
+    grid-template-columns: 1fr;
+  }
 }
 
-.inactiveButton, .activeButton {
-  color: var(--black-one);
-  border: 2px solid var(--black-one);
-  font-size: 1rem;
-  height: 40px;
-  width: 40px;
-
-
-  /* background-color: var(--black-one);
-  color: white;
-  border: none; */
+@media (max-width: 720px) {
+  .line {
+    width: 200px;
+  }
 }
 
-.inactiveButton {
-  background-color: white;
-}
+@media(max-width: 500px) {
+  header img {
+    display: none;
+  }
 
-.inactiveButton:hover {
-  cursor: pointer;
-  background-color: var(--black-one);
-  color: white;
+  header {
+    height: 9em;
+    grid-template-columns: 1fr;
+  }
 
+  .feedContainer {
+    margin: 40px auto 50px auto;
+  }
 
-  /* background-color: var(--orange-two); */
-}
+  .articleContainer {
+    width: 300px;
+  }
 
-.activeButton {
-  background-color: var(--black-one);
-  color: white;
-  height: 50px;
-  width: 50px;
-  transition: 0.5s ease-in-out;
+  .articleContainer img {
+    width: 300px;
+  }
+
+  .buttonBar {
+    gap: 10px;
+  }
+
+  .inactiveButton, .activeButton {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .activeButton {
+    height: 45px;
+    width: 45px;
+  }
+
+  .registerHeader {
+    gap: 10px;
+  }
+  
+  .registerHeader h2 {
+    font-size: 1.8rem;
+  }
+  
+  .line {
+    height: 0.1rem;
+    width: 110px;
+  }
+
+  .formSection p {
+    font-size: 0.9rem;
+  }
+
+  input {
+    width: 300px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    margin-top: 50px;
+  }
+
+  footer p {
+    display: none;
+  }
 }
