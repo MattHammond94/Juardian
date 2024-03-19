@@ -6,10 +6,10 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <NewsFeed />
-      {/* <Form />
-      <Footer /> */}
+      <Form />
+      <Footer />
     </>
   )
 }
