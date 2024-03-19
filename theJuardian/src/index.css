@@ -8,7 +8,7 @@
 :root {
   --text-font: 'Playfair Display', serif;
   --orange-one: #E97204;
-  --orage-two: #E26A12;
+  --orange-two: #E26A12;
   --black-one: #1E1A1A;
   --black-two: #181414;
   --black-three: #1C1A16;
@@ -16,6 +16,10 @@
 }
 
 body {
+  font-family: var(--text-font);
+}
+
+button {
   font-family: var(--text-font);
 }
 
@@ -55,6 +59,14 @@ header h1:last-of-type {
 }
 
 
+
+
+
+
+
+
+
+
 /* ================= NEWS FEED ================ */
 
 a {
@@ -63,7 +75,8 @@ a {
 }
 
 a:visited {
-
+  color: var(--black-one);
+  text-decoration: none;
 }
 
 a:hover {
@@ -84,10 +97,27 @@ a:hover {
   box-shadow: 0 0 8px 0 rgba(30, 26, 26, 0.5);
 }
 
+.articleContainer:hover {
+  border-left: 1px solid var(--orange-one);
+}
+
 .articleContainer img {
   width: 400px;
   margin-bottom: 15px;
+  opacity: 0.8;
 }
+
+.articleContainer p {
+  color: var(--black-one);
+  opacity: 0.9;
+  margin-top: 10px;
+  max-height: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
 
 
 
@@ -97,25 +127,24 @@ a:hover {
 
 /* ================= FORM ================ */
 
-button {
+.registerButton {
   background-color: var(--black-one);
   color: white;
-  font-family: var(--text-font);
   font-size: 1rem;
   height: 40px;
   width: 80px;
   border: none;
 }
 
-button:hover {
+.registerButton:hover {
   cursor: pointer;
-  /* background-color: var(--orage-two); */
+  /* background-color: var(--orange-two); */
   background-color: var(--orange-one);
 }
 
 input {
   height: 40px;
-  width: 320px;
+  width: 330px;
   border: 1.5px solid var(--black-one);
   text-indent: 10px;
 }
@@ -191,4 +220,55 @@ footer img {
 footer p {
   text-align: center;
   color: white;
+}
+
+
+
+
+
+/* ================= BUTTON BAR ================ */
+
+.buttonBar {
+  position: relative;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.inactiveButton, .activeButton {
+  color: var(--black-one);
+  border: 2px solid var(--black-one);
+  font-size: 1rem;
+  height: 40px;
+  width: 40px;
+
+
+  /* background-color: var(--black-one);
+  color: white;
+  border: none; */
+}
+
+.inactiveButton {
+  background-color: white;
+}
+
+.inactiveButton:hover {
+  cursor: pointer;
+  background-color: var(--black-one);
+  color: white;
+
+
+  /* background-color: var(--orange-two); */
+}
+
+.activeButton {
+  background-color: var(--black-one);
+  color: white;
+  height: 50px;
+  width: 50px;
+  transition: 0.5s ease-in-out;
 }

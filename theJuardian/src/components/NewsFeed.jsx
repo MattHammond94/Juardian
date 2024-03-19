@@ -6,7 +6,7 @@ import ButtonBar from "./ButtonBar";
 const NewsFeed = () => {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [articlesPerPage, setArticlesPerPage] = useState(8);
+  const [articlesPerPage] = useState(8);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -21,7 +21,9 @@ const NewsFeed = () => {
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
   const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
 
-  console.log(articles);
+  const changeContent = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
 
   return (
     <main>
@@ -30,7 +32,7 @@ const NewsFeed = () => {
           <Article key={index} article={article} />
         ))}
       </div>
-      <ButtonBar articlesPerPage={ articlesPerPage } totalArticles={ articles.length }/>
+      <ButtonBar articlesPerPage={ articlesPerPage } totalArticles={ articles.length } changeContent={ changeContent } currentPage={ currentPage } />
     </main>
   )
 }
