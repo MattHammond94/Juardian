@@ -23,6 +23,7 @@ const NewsFeed = () => {
 
   const changeContent = (pageNumber) => {
     setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   return (
