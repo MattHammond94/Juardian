@@ -4,7 +4,7 @@
 
 **Deployed project:** https://the-juardian.netlify.app/
 
-## Build
+## Build
 
 This project was built using pure react and utilises The Guardian API
 
